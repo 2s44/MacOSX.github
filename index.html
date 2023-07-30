@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mac OS X</title>
+  <style>
+    body {
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+    
+    .logo {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+    
+    .progress-bar {
+      width: 200px;
+      height: 10px;
+      background-color: gray;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    
+    .progress {
+      height: 100%;
+      background-color: white;
+      animation: progress-animation 5s linear forwards;
+    }
+    
+    @keyframes progress-animation {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <img src="https://pb.nichi.co/agree-layer-goose" alt="Apple Logo" class="logo">
+    <div class="progress-bar">
+      <div class="progress"></div>
+    </div>
+    <p>当前仅为测试重写版本，具体请以正式版为准</p>
+  </div>
+
+  <script>
+    // 等待页面加载完成
+    window.addEventListener('load', function() {
+      // 获取进度条元素
+      var progressBar = document.querySelector('.progress');
+      // 获取动画持续时间
+      var animationDuration = parseFloat(window.getComputedStyle(progressBar).animationDuration) * 1000;
+      
+      // 监听进度条动画结束事件
+      progressBar.addEventListener('animationend', function() {
+        // 延迟1秒钟跳转到另一个页面 
+        setTimeout(function() {
+ window.location.href = 'mac.html';
+        }, 1000);
+      });
+      
+      // 设置一个足够长的延迟时间，确保进度条动画能够完全播放
+      setTimeout(function() {
+        progressBar.style.animationDuration = '0s';
+      }, animationDuration);
+    });
+  </script>
+</body>
+</html>
